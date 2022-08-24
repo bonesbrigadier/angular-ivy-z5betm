@@ -11,9 +11,10 @@ const _data = [
   { id: 6, title: 'title 6', description: 'description 6', isLiked: true, isBookmarked: true },
 ];
 
-let _state = {
+let _state : PostServiceResponse = {
   callerId: 0,
   posts: _data,
+  type: ''
 };
 
 @Injectable({
@@ -27,18 +28,19 @@ export class PostService {
   setIsLiked(id: number, isLiked: boolean) {
     var post = _data.find((x) => x.id === id);
     post.isLiked = isLiked;
-    var state = { callerId: id, posts: _data }
+    var state = { callerId: id, posts: _data, type: 'like' }
     this.allPostsSubject.next(state);
   }
   
   setIsBookmarked(id: number, isBookmarked: boolean) {
     var post = _data.find((x) => x.id === id);
     post.isBookmarked = isBookmarked;
-    var state = { callerId: id, posts: _data }
+    var state = { callerId: id, posts: _data, type: 'bookmark' }
     this.allPostsSubject.next(state);
   }
 }
 export class PostServiceResponse {
-  posts: Post[];
   callerId: number;
+  posts: Post[];
+  type: string;
 }

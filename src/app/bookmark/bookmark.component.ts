@@ -27,7 +27,7 @@ export class BookmarkComponent {
     switchMap((id) => this.bookmarkService.getCurrentState$(id)),
     tap((post) => {
       console.log(post);
-      if (this.isSubmitting === true && this._id === post.callerId)
+      if (post.type === 'bookmark' && this._id === post.callerId)
         this.isSubmitting = false;
     }),
     map((x) => x.posts.find((f) => f.id === this._id)),
