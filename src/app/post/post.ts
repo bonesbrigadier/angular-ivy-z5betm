@@ -3,4 +3,5 @@ export class Post {
   title: string;
   description: string;
   isLiked: boolean;
+  isBookmarked: boolean;
 }

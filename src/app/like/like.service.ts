@@ -14,10 +14,6 @@ export class LikeService {
   setIsLiked(id: number, isLiked: boolean) {
     this.postService.setIsLiked(id, isLiked);
   }
-
-  // unlike(id: number) {
-  //   this.postService.setIsLiked(id, false);
-  // }
 }
 
 export class liked {

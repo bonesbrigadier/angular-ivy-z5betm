@@ -18,7 +18,6 @@ export class LikeComponent {
   }
 
   isSubmitting = false;
-  // disabled = false;
 
   private idSubject = new BehaviorSubject<number>(1);
 

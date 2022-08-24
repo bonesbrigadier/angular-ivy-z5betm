@@ -1,0 +1,19 @@
+<ng-container *ngIf="currentState$ | async; else likeTemplate">
+  <div>
+    <button class="button" [hidden]="isSubmitting">
+      <span class="followed-text">Unbookmark</span>
+    </button>
+  </div>
+</ng-container>
+
+<ng-template #likeTemplate>
+  <div>
+    <button class="button" [hidden]="isSubmitting">
+      <span class="followed-text">Bookmark</span>
+    </button>
+  </div>
+</ng-template>
+
+<div>
+  <span [hidden]="!isSubmitting">Loading...</span>
+</div>
