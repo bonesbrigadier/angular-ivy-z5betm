@@ -31,7 +31,7 @@ export class BookmarkComponent {
         this.isSubmitting = false;
     }),
     map((x) => x.posts.find((f) => f.id === this._id)),
-    map((x) => x.isLiked),
+    map((x) => x.isBookmarked),
     catchError(() => [])
   );
 
