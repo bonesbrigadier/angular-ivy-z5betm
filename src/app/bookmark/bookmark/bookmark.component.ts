@@ -35,4 +35,17 @@ export class BookmarkComponent {
     catchError(() => [])
   );
 
+  bookmark() {
+    this.isSubmitting = true;
+    setTimeout(() => {
+      this.bookmarkService.setIsBookmarked(this._id, true);
+    }, 5000);
+  }
+
+  unbookmark() {
+    this.isSubmitting = true;
+    setTimeout(() => {
+      this.bookmarkService.setIsBookmarked(this._id, false);
+    }, 5000);
+  }
 }

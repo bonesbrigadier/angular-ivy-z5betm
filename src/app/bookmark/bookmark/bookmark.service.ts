@@ -11,4 +11,8 @@ export class BookmarkService {
   getCurrentState$(id: number) {
     return this.postService.allPosts$;
   }
+
+  setIsBookmarked(id: number, isLiked: boolean) {
+    this.postService.setIsBookmarked(id, isLiked);
+  }
 }

@@ -1,6 +1,6 @@
 <ng-container *ngIf="currentState$ | async; else likeTemplate">
   <div>
-    <button class="button" [hidden]="isSubmitting">
+    <button class="button" [hidden]="isSubmitting" (click)="unbookmark()">
       <span class="followed-text">Unbookmark</span>
     </button>
   </div>
@@ -8,7 +8,7 @@
 
 <ng-template #likeTemplate>
   <div>
-    <button class="button" [hidden]="isSubmitting">
+    <button class="button" [hidden]="isSubmitting" (click)="bookmark()">
       <span class="followed-text">Bookmark</span>
     </button>
   </div>

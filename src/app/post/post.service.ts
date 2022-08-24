@@ -30,6 +30,13 @@ export class PostService {
     var state = { callerId: id, posts: _data }
     this.allPostsSubject.next(state);
   }
+  
+  setIsBookmarked(id: number, isBookmarked: boolean) {
+    var post = _data.find((x) => x.id === id);
+    post.isBookmarked = isBookmarked;
+    var state = { callerId: id, posts: _data }
+    this.allPostsSubject.next(state);
+  }
 }
 export class PostServiceResponse {
   posts: Post[];
