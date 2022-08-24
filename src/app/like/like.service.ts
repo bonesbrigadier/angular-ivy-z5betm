@@ -11,13 +11,13 @@ export class LikeService {
     return this.postService.allPosts$;
   }
 
-  like(id: number) {
-    this.postService.setLike(id);
+  setIsLiked(id: number, isLiked: boolean) {
+    this.postService.setIsLiked(id, isLiked);
   }
 
-  unlike(id: number) {
-    this.postService.setUnlike(id);
-  }
+  // unlike(id: number) {
+  //   this.postService.setIsLiked(id, false);
+  // }
 }
 
 export class liked {

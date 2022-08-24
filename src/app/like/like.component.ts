@@ -26,13 +26,12 @@ export class LikeComponent {
 
   currentState$ = this.idSubject.pipe(
     switchMap((id) => this.likeService.getCurrentState$(id)),
-    tap(post => {
-      console.log(post)
-      if(this.isSubmitting === true && this._id === post.callerId)
-      // if(this.isSubmitting === true && this._id === post.id)
-        this.isSubmitting = false
+    tap((post) => {
+      console.log(post);
+      if (this.isSubmitting === true && this._id === post.callerId)
+        this.isSubmitting = false;
     }),
-    map(x => x.posts.find((f) => f.id === this._id)),    
+    map((x) => x.posts.find((f) => f.id === this._id)),
     map((x) => x.isLiked),
     catchError(() => [])
   );
@@ -40,15 +39,14 @@ export class LikeComponent {
   like() {
     this.isSubmitting = true;
     setTimeout(() => {
-      this.likeService.like(this._id)
+      this.likeService.setIsLiked(this._id, true);
     }, 5000);
   }
 
   unlike() {
     this.isSubmitting = true;
     setTimeout(() => {
-      this.likeService.unlike(this._id);
+      this.likeService.setIsLiked(this._id, false);
     }, 5000);
-    
   }
 }
