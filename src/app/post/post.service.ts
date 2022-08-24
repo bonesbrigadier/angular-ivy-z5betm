@@ -21,7 +21,6 @@ let _state = {
 })
 export class PostService {
 
-
   private allPostsSubject = new BehaviorSubject<PostServiceResponse>(_state);
   allPosts$ = this.allPostsSubject.asObservable();
 
