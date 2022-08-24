@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { PostService } from '../../post/post.service';
+import { PostService } from '../post/post.service';
 
 @Injectable({
   providedIn: 'root',
