@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { switchMap, tap } from 'rxjs';
+import { tap } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
-import { PostService } from '../../post/post.service';
 import { SearchService } from './search.service';
 
 @Component({
