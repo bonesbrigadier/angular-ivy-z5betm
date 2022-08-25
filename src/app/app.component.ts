@@ -10,7 +10,7 @@ import { PostService } from './post/post.service';
 export class AppComponent {
   constructor(private postService: PostService) {}
 
-  posts$ = this.postService.allPosts$.pipe(
+  posts$ = this.postService.posts$.pipe(
     map((x) => x.posts),
     take(1)
   );
