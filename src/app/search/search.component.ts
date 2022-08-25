@@ -18,7 +18,7 @@ export class SearchComponent {
     tap(searchTerm => this.searchService.search(searchTerm))
   );
 
-  searchResults$ = this.searchService.posts$;
+  // searchResults$ = this.searchService.posts$;
 
   constructor(private searchService: SearchService){
 
