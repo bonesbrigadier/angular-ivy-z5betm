@@ -57,7 +57,7 @@ let _state: PostServiceResponse = {
   providedIn: 'root',
 })
 export class PostService {
-  
+
   private allPostsSubject = new BehaviorSubject<PostServiceResponse>(_state);
   allPosts$ = this.allPostsSubject.asObservable();
 
@@ -79,6 +79,10 @@ export class PostService {
     post.isBookmarked = isBookmarked;
     var state = { callerId: id, posts: _data, type: 'bookmark' };
     this.allPostsSubject.next(state);
+  }
+
+  search(searchTerm: string){
+
   }
 }
 export class PostServiceResponse {

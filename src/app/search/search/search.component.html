@@ -1,0 +1,11 @@
+<div>
+  <ng-container *ngIf="search$ | async"></ng-container>
+  <input type="search" [formControl]="searchQuery" />
+</div>
+
+<ng-container>
+  <div *ngFor="let result of searchResults$ | async">
+    {{ result.description }}
+  </div>
+</ng-container>
+
