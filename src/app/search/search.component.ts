@@ -13,12 +13,10 @@ export class SearchComponent {
   searchQuery: FormControl = new FormControl();
 
   search$ = this.searchQuery.valueChanges.pipe(
+    tap(x => this.searchService.startedSearch()),
     debounceTime(2000),
-    tap((x) => console.log(x)),
     tap(searchTerm => this.searchService.search(searchTerm))
   );
-
-  // searchResults$ = this.searchService.posts$;
 
   constructor(private searchService: SearchService){
 

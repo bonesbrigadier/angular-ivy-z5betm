@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { map, of, Subject } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 
 const _data = [
   {
@@ -47,47 +47,31 @@ const _data = [
   },
 ];
 
-// let _state: PostServiceResponse = {
-//   callerId: 0,
-//   posts: _data,
-//   type: '',
-// };
-
 @Injectable({
   providedIn: 'root',
 })
 export class SearchService {
   private searchSubject = new Subject<string>();
-  // allPosts$ = this.searchSubject.asObservable();
+  private startedSearchSubject = new Subject<boolean>();
+
+  state = false;
 
   posts$ = this.searchSubject.pipe(
     switchMap((searchTerm) =>
       of(_data).pipe(
         map((x) => x.filter((f) => f.title.startsWith(searchTerm)))
       )
-    )
+    ),
+    tap(x => this.startedSearchSubject.next(false))
   );
 
-  // setIsLiked(id: number, isLiked: boolean) {
-  //   var post = _data.find((x) => x.id === id);
-  //   post.isLiked = isLiked;
-  //   var state = { callerId: id, posts: _data, type: 'like' };
-  //   this.allPostsSubject.next(state);
-  // }
-
-  // setIsBookmarked(id: number, isBookmarked: boolean) {
-  //   var post = _data.find((x) => x.id === id);
-  //   post.isBookmarked = isBookmarked;
-  //   var state = { callerId: id, posts: _data, type: 'bookmark' };
-  //   this.allPostsSubject.next(state);
-  // }
+  startedSearch$ = this.startedSearchSubject.asObservable();
 
   search(searchTerm: string) {
     this.searchSubject.next(searchTerm);
   }
+
+  startedSearch() {
+    this.startedSearchSubject.next(true);
+  }
 }
-// export class PostServiceResponse {
-//   callerId: number;
-//   posts: Post[];
-//   type: string;
-// }

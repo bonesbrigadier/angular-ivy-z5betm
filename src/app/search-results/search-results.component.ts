@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { combineLatest, map } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { SearchService } from '../search/search.service';
 
 @Component({
@@ -8,7 +10,10 @@ import { SearchService } from '../search/search.service';
 })
 export class SearchResultsComponent {
 
+  showResults = false;
+
   searchResults$ = this.searchService.posts$;
+  showResults$ = this.searchService.startedSearch$;
 
   constructor(private searchService: SearchService){
 
