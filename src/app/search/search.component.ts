@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { tap } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
+import { debounceTime, delay } from 'rxjs/operators';
 import { SearchService } from './search.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class SearchComponent {
 
   search$ = this.searchQuery.valueChanges.pipe(
     tap(x => this.searchService.startedSearch()),
-    debounceTime(2000),
+    delay(2000),
     tap(searchTerm => this.searchService.search(searchTerm))
   );
 

@@ -1,6 +1,10 @@
 <!-- <ng-container *ngIf="showResults$ | async"></ng-container> -->
 
-<div [hidden]="showResults$ | async" *ngFor="let result of searchResults$ | async">
+<!-- <div [hidden]="showResults$ | async" *ngFor="let result of searchResults$ | async">
+  {{ result.description }}
+</div> -->
+
+<div *ngFor="let result of combined$ | async">
   {{ result.description }}
 </div>
 

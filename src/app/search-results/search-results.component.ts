@@ -6,17 +6,23 @@ import { SearchService } from '../search/search.service';
 @Component({
   selector: 'app-search-results',
   templateUrl: './search-results.component.html',
-  styleUrls: ['./search-results.component.css']
+  styleUrls: ['./search-results.component.css'],
 })
 export class SearchResultsComponent {
-
   showResults = false;
 
   searchResults$ = this.searchService.posts$;
   showResults$ = this.searchService.startedSearch$;
 
-  constructor(private searchService: SearchService){
+  combined$ = combineLatest([this.searchResults$, this.showResults$]).pipe(
+    map(([results, trigger]) => {
+      if (!trigger) {
+        return results;
+      } else {
+        return [];
+      }
+    })
+  );
 
-  }
-
+  constructor(private searchService: SearchService) { }
 }
