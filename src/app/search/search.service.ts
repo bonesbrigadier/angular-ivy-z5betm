@@ -58,9 +58,10 @@ export class SearchService {
 
   posts$ = this.searchSubject.pipe(
     switchMap((searchTerm) =>
+      searchTerm ?
       of(_data).pipe(
-        map((x) => x.filter((f) => f.title.startsWith(searchTerm))),
-      )
+        map((x) => x.filter((f) => f.title.startsWith(searchTerm)))
+      ) : of([])
     ),
     tap(x => this.startedSearchSubject.next(false))
   );
