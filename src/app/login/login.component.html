@@ -2,5 +2,16 @@
   <button (click)="logout()">Logout</button>
 </ng-container>
 <ng-template #loginTemplate>
+  <form action="loginForm">
+    <div>
+      <label for="emailAddress" class="">Email Address:</label>
+      <input type="text" name="emailAddress" />
+    </div>
+
+    <div>
+      <label for="emailAddress" class="">Password:</label>
+      <input type="text" name="emailAddress" />
+    </div>
+  </form>
   <button (click)="login()">Login</button>
 </ng-template>
