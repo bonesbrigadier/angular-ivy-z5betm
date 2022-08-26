@@ -10,6 +10,7 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   imports: [BrowserModule, ReactiveFormsModule],
@@ -21,7 +22,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     SearchResultsComponent,
     LoginComponent,
     UserComponent, 
-    NavigationComponent
+    NavigationComponent,
+    LoadingComponent
   ],
   bootstrap: [AppComponent],
 })

@@ -1,3 +1,5 @@
 <ng-container *ngIf="loggedInUser$ | async as userDetails">
+  <div class="userDetails">
   {{userDetails.displayName}}
+  </div>
 </ng-container>

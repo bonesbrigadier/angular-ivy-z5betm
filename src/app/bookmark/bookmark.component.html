@@ -14,6 +14,10 @@
   </div>
 </ng-template>
 
-<div>
+<!-- <div>
   <span [hidden]="!isSubmitting">Loading...</span>
-</div>
+</div> -->
+<!-- <div *ngIf="isSubmitting">
+  <span>Loading...</span>
+</div> -->
+<app-loading [isSubmitting]="isSubmitting"></app-loading>
