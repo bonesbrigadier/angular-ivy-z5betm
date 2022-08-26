@@ -1,3 +1,6 @@
-<p>Login</p>
-
-<p>Logout</p>
+<ng-container *ngIf="loggedInUser$ | async; else loginTemplate">
+  <p><a [href]="" (click)="logout()">Logout</a></p>
+</ng-container>
+<ng-template #loginTemplate>
+  <p><a [href]="" (click)="login()">Login</a></p>
+</ng-template>
