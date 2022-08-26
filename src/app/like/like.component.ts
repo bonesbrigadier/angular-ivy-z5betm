@@ -26,7 +26,7 @@ export class LikeComponent {
   currentState$ = this.idSubject.pipe(
     switchMap((id) => this.likeService.getCurrentState$(id)),
     tap((post) => {
-      console.log(post);
+      // console.log(post);
       if (post.type === 'like' &&  this._id === post.callerId)
         this.isSubmitting = false;
     }),
