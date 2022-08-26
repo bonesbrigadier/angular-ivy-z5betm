@@ -1,5 +1,6 @@
 import { Component, VERSION } from '@angular/core';
 import { map, take } from 'rxjs';
+import { LoginService } from './login/login.service';
 import { PostService } from './post/post.service';
 
 @Component({
@@ -8,8 +9,12 @@ import { PostService } from './post/post.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  constructor(private postService: PostService) {}
+  constructor(
+    private loginService: LoginService,
+    private postService: PostService) {}
 
+  loggedInUser$ = this.loginService.loggedInUser$;
+  
   posts$ = this.postService.posts$.pipe(
     map((x) => x.posts),
     take(1)

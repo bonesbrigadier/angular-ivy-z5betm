@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, of, Subject } from 'rxjs';
 import { User } from '../post/user';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -8,14 +9,15 @@ import { User } from '../post/user';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  loggedInUserSubject = new BehaviorSubject<User>(null);
-  loggedInUser$ = this.loggedInUserSubject.asObservable();
+  loggedInUser$ = this.loginService.loggedInUser$;
+
+  constructor(private loginService: LoginService) {}
 
   login() {
-    this.loggedInUserSubject.next({ displayName: 'G' });
+    this.loginService.login();
   }
 
   logout() {
-    this.loggedInUserSubject.next(null);
+    this.loginService.logout();
   }
 }

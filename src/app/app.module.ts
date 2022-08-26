@@ -8,6 +8,7 @@ import { BookmarkComponent } from './bookmark/bookmark.component';
 import { SearchComponent } from './search/search.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { LoginComponent } from './login/login.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   imports: [BrowserModule, ReactiveFormsModule],
@@ -17,7 +18,8 @@ import { LoginComponent } from './login/login.component';
     BookmarkComponent,
     SearchComponent,
     SearchResultsComponent,
-    LoginComponent
+    LoginComponent,
+    UserComponent
   ],
   bootstrap: [AppComponent],
 })
