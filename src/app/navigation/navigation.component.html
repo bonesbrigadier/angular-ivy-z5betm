@@ -1,4 +1,9 @@
 <div class="navigation">
   <span>Navigation</span>
+  <div *ngIf="loggedInUser$ | async">
+    <p>
+    Navigation options
+    </p>
+  </div>
   <app-login></app-login>
 </div>
